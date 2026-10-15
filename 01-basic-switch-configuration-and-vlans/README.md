@@ -58,22 +58,23 @@ No default gateway is required for the intended same-VLAN connectivity tests.
 5. Used copper straight-through cables.
 6. Waited for the connections to initialize.
 
-![Network Creation](screenshots/01-windows-server-2025-vm-settings.png)
+![Network Creation](screenshots/initial_network_setup.png)
 
 ## Step 2 — Configure PC IPv4 Addresses
 
 For each PC:
 
-1. Open the PC.
-2. Select Desktop.
-3. Open IP Configuration.
-4. Select Static.
-5. Enter the IP address and subnet mask from the addressing table.
-6. Leave the default gateway blank.
+1. Opened the PC.
+2. Selected Desktop.
+3. Opened IP Configuration.
+4. Selected Static.
+5. Entered an IP address and subnet mask.
+6. Left the default gateway blank.
 
-**Why this matters:** Static addressing provides predictable endpoints for connectivity testing without requiring DHCP.
+**Verification:** Opened cmd and ran ipconfig:
 
-**Verification:** Reopened IP Configuration on each PC and confirmed the settings.
+![USER-PC01 IP Address](screenshots/PC_1_IP.png)
+![USER-PC02 IP Address](screenshots/PC_2_IP.png)
 
 ## Step 3 — Access the Switch CLI
 
