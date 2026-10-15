@@ -76,31 +76,22 @@ For each PC:
 ![USER-PC01 IP Address](screenshots/PC_1_IP.png)
 ![USER-PC02 IP Address](screenshots/PC_2_IP.png)
 
+Verified connectivity by successfully pinging one PC from the other.
+
+![USER-PC02 IP Address](screenshots/pingable.png)
+
 ## Step 3 — Access the Switch CLI
 
-Open the switch and select the CLI tab. Press Enter if prompted.
+Opened the switch and selected the CLI tab.
 
-Enter privileged EXEC mode:
+Created VLAN 2 & 3 for Users and Accounting:
 
-```cisco
-enable
-```
+1. Entered `en` to access privileged mode and then `config t` to configure the terminal.
+2. Typed `vlan 2` and named it **User-VLAN** → `Exit`.
+3. Typed `vlan 3` and named it **Accounting-VLAN** → `Exit` → `Exit`.
+4. Entered `sh vlan` to show the newly created vlans.
 
-Enter global configuration mode:
-
-```cisco
-configure terminal
-```
-
-Cisco IOS command modes can be identified by the prompt:
-
-| Mode | Example Prompt |
-|---|---|
-| User EXEC | `Switch>` |
-| Privileged EXEC | `Switch#` |
-| Global configuration | `Switch(config)#` |
-| VLAN configuration | `Switch(config-vlan)#` |
-| Interface configuration | `Switch(config-if)#` |
+![VLAN Creation](screenshots/user_&_acct_vlan_creation.png)
 
 ## Step 4 — Inspect Existing VLANs
 
