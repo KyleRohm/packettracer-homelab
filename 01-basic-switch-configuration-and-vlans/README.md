@@ -7,8 +7,6 @@ This lab uses Cisco Packet Tracer to build a simple switched network and configu
 
 The lab demonstrates basic Cisco IOS CLI navigation, VLAN creation, access-port configuration, configuration saving, and connectivity verification.
 
-**Status:** Planned — configuration and test results have not yet been verified.
-
 ## Objectives
 
 - Build a basic switched network in Cisco Packet Tracer.
@@ -19,7 +17,6 @@ The lab demonstrates basic Cisco IOS CLI navigation, VLAN creation, access-port 
 - Save the running configuration to startup configuration.
 - Verify VLAN membership using Cisco IOS show commands.
 - Test connectivity within and between VLANs.
-- Understand why inter-VLAN communication requires Layer 3 routing.
 
 ## Lab Environment
 
@@ -28,11 +25,9 @@ The lab demonstrates basic Cisco IOS CLI navigation, VLAN creation, access-port 
 | Simulator | Cisco Packet Tracer |
 | Switch | Cisco Catalyst 2960 |
 | End devices | Three PCs |
-| Connections | Copper straight-through Ethernet cables |
 | Switch interfaces | FastEthernet0/1, FastEthernet0/2, FastEthernet0/3 |
 | Addressing | Static IPv4 |
 | VLANs | VLAN 2 and VLAN 3 |
-| Routing | Not configured |
 
 ## Network Topology
 
@@ -40,31 +35,30 @@ The planned topology consists of one Cisco 2960 switch connected to three PCs.
 
 | Device | Switch Port | IPv4 Address | Subnet Mask | VLAN |
 |---|---|---|---|---|
-| PC0 — User | Fa0/1 | 192.168.1.1 | 255.255.255.0 | 2 |
-| PC1 — Accounting | Fa0/2 | 192.168.1.2 | 255.255.255.0 | 3 |
-| PC2 — Accounting | Fa0/3 | 192.168.1.3 | 255.255.255.0 | 3 |
+| USER-PC01 — User | Fa0/1 | 192.168.1.1 | 255.255.255.0 | 2 |
+| USER-PC02 — Accounting | Fa0/2 | 192.168.1.2 | 255.255.255.0 | 3 |
+| USER-PC03 — Accounting | Fa0/3 | 192.168.1.3 | 255.255.255.0 | 3 |
 
 No default gateway is required for the intended same-VLAN connectivity tests.
-
-**Design note:** The tutorial places all three PCs in the same IPv4 subnet while separating them into different VLANs. This demonstrates Layer 2 separation, but production networks generally use a distinct IP subnet for each VLAN.
 
 ## Prerequisites
 
 - Cisco Packet Tracer is installed.
-- A blank Packet Tracer workspace is available.
 - Basic familiarity with IPv4 addressing and subnet masks.
 
 ## Step 1 — Build the Topology
 
-1. Add one Cisco Catalyst 2960 switch.
-2. Add three PCs.
-3. Connect PC0 to FastEthernet0/1.
-4. Connect PC1 to FastEthernet0/2.
-5. Connect PC2 to FastEthernet0/3.
-6. Use copper straight-through cables.
-7. Wait for the connections to initialize.
+1. Added one Cisco Catalyst 2960 switch.
+2. Added two PCs
+3. Connected USER-PC01 to FastEthernet0/1.
+4. Connected USER-PC02 to FastEthernet0/2.
 
-**Verification:** Hover over each connection and confirm the connected switch interface.
+> Note: The third PC will come later.
+
+5. Used copper straight-through cables.
+6. Waited for the connections to initialize.
+
+![Network Creation](screenshots/01-windows-server-2025-vm-settings.png)
 
 ## Step 2 — Configure PC IPv4 Addresses
 
@@ -79,7 +73,7 @@ For each PC:
 
 **Why this matters:** Static addressing provides predictable endpoints for connectivity testing without requiring DHCP.
 
-**Verification:** Reopen IP Configuration on each PC and confirm the settings.
+**Verification:** Reopened IP Configuration on each PC and confirmed the settings.
 
 ## Step 3 — Access the Switch CLI
 
