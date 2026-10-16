@@ -128,6 +128,7 @@ Building configuration...
 ```
 
 **Verification**:
+
 ![3rd PC](screenshots/third_pc.png)
 
 Verify the VLANs:
