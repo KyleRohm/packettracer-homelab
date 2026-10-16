@@ -107,6 +107,10 @@ Assigned each computer to their respective VLANs
 
 ![Assigned Ports To VLANs](screenshots/switchport_access.png)
 
+**Verification:** The configuration was verified by attempting (and failing) to ping one computer from the other.
+
+![Unable To Ping](screenshots/cannot_reach.png)
+
 ## Step 6 — Create VLAN 3
 
 From global configuration mode, enter:
