@@ -111,15 +111,24 @@ Assigned each computer to their respective VLANs
 
 ![Unable To Ping](screenshots/cannot_reach.png)
 
-## Step 6 — Create VLAN 3
+## Step 5 — Create a Third PC and Assign to VLAN 3
 
-From global configuration mode, enter:
+A second accounting PC was created, assigned a static IP, and configured to VLAN 3.
 
 ```cisco
-vlan 3
-name ACCOUNTING-VLAN
-exit
+Switch>
+Switch>en
+Switch#conf t
+Switch(config)#int fa0/3
+Switch (config-if)#switchport mode access
+Switch (config-if)#switchport access vlan 3
+Switch (config-if)#do wr
+Building configuration...
+[OK]
 ```
+
+**Verification**:
+![3rd PC](screenshots/third_pc.png)
 
 Verify the VLANs:
 
