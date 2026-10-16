@@ -80,7 +80,7 @@ Verified connectivity by successfully pinging one PC from the other.
 
 ![USER-PC02 IP Address](screenshots/pingable.png)
 
-## Step 3 — Access the Switch CLI
+## Step 3 — Access the Switch CLI and Create VLANs
 
 Opened the switch and selected the CLI tab.
 
@@ -91,47 +91,21 @@ Created VLAN 2 & 3 for Users and Accounting:
 3. Typed `vlan 3` and named it **Accounting-VLAN** → `Exit` → `Exit`.
 4. Entered `sh vlan` to show the newly created vlans.
 
-![VLAN Creation](screenshots/user_&_acct_vlan_creation.png)
+![VLAN Creation](screenshots/show_vlan.png)
 
-## Step 4 — Inspect Existing VLANs
+## Step 4 — Assign Ports to VLANs
 
-From global configuration mode, return to privileged EXEC mode:
+Assigned each computer to their respective VLANs
 
-```cisco
-end
-```
+1. Opened the switch CLI and entered privileged mode.
+2. Typed `conf t` to configure the terminal.
+3. Typed `int fa0/2` to select the port.
+4. Entered `switchport mode access` and then `switchport access vlan 3` to assign the fa/02 port to VLAN 3.
+5. Saved the configuration to memory by typing `do wr`
 
-Display the VLAN table:
+> Note: This process was repeated by assigning fa0/1 to VLAN 2.
 
-```cisco
-show vlan brief
-```
-
-A factory-default switch commonly has VLAN 1 present, with access ports assigned to it.
-
-**Why this matters:** Inspecting the current configuration establishes a baseline before making changes.
-
-Return to global configuration mode:
-
-```cisco
-configure terminal
-```
-
-## Step 5 — Create VLAN 2
-
-From global configuration mode, enter:
-
-```cisco
-vlan 2
-name USER-VLAN
-exit
-```
-
-**Explanation:**
-
-- `vlan 2` creates VLAN 2 if it does not already exist.
-- `name USER-VLAN` assigns a descriptive name.
-- `exit` returns to global configuration mode.
+![Assigned Ports To VLANs](screenshots/switchport_access.png)
 
 ## Step 6 — Create VLAN 3
 
