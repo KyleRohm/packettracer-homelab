@@ -248,9 +248,13 @@ Pinged the printer from a wired PC's command prompt:
 
 ### Test 2: Laptop to Wireless Router
 
+Pinged the WRT300N router from the laptop's command prompt:
+
 ![Wireless Router Ping](screenshots/Wireless_Router_Ping.png)
 
 ### Test 3: Wireless-to-wired connectivity
+
+Pinged a wired PC from the laptop's command prompt:
 
 ![Wired PC To Wireless Laptop](screenshots/Wired_PC_To_Wireless_Laptop.png)
 
