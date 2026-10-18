@@ -178,8 +178,6 @@ The WRT300N has separate Internet-facing and internal LAN interfaces. A cross ov
 
 > The Cisco 2911 will be serving as the network's default gateway.
 
-![IP Address](screenshots/IP_address.png)
-
 ---
 
 ## Step 6: Connect the Laptop to Wi-Fi
