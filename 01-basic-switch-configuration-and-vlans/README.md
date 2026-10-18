@@ -3,19 +3,19 @@
 
 ## Overview
 
-This lab uses Cisco Packet Tracer to build a simple switched network and configure VLANs on a Cisco Catalyst 2960 switch. Three PCs connect to the switch, with one PC assigned to VLAN 2 and two PCs assigned to VLAN 3.
+This lab uses Packet Tracer to build a simple switched network with two VLANs. Three PCs connect to the switch, with one PC assigned to VLAN 2 and two PCs assigned to VLAN 3.
 
-The lab demonstrates basic Cisco IOS CLI navigation, VLAN creation, access-port configuration, configuration saving, and connectivity verification.
+The lab demonstrates basic Cisco IOS CLI navigation, VLAN creation, and connectivity verification.
 
 ## Objectives
 
-- Build a basic switched network in Cisco Packet Tracer.
+- Build a basic switched network in Packet Tracer.
 - Configure static IPv4 addresses on three PCs.
 - Navigate Cisco IOS command modes.
 - Create and name VLANs.
 - Configure switch access ports and assign VLAN membership.
 - Save the running configuration to startup configuration.
-- Verify VLAN membership using Cisco IOS show commands.
+- Verify VLAN membership using show commands.
 - Test connectivity within and between VLANs.
 
 ## Lab Environment
