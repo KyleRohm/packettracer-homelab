@@ -18,9 +18,7 @@ The lab focuses on IPv4 addressing, subnetting, router interface configuration, 
 - Configure a wireless router's SSID and security settings.
 - Connect a laptop to a wireless network.
 - Assign a static IPv4 address to a network printer.
-- Verify addressing and connectivity using `ipconfig` and `ping`.
-- Save and verify network device configurations.
-- Troubleshoot common addressing and connectivity problems.
+- Verify addressing and connectivity.
 
 ---
 
