@@ -70,6 +70,8 @@ The network will use two IPv4 subnets:
 2. Connected the switch to the Cisco 2911 router.
 3. Connected the Cisco 2911 router's `GigabitEthernet0/1` interface to the WRT300N's **Internet** port.
 
+![Network Layout](screenshots/Initial_Layout.png)
+
 ---
 
 ## Step 3: Configure the Cisco Router Interfaces
