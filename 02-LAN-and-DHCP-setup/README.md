@@ -191,7 +191,7 @@ The WRT300N has separate Internet-facing and internal LAN interfaces. A cross ov
 
 ### Connected to Wi-Fi
 
-1. Selected the **Desktop** tab.
+1. Selected the **PC Wireless** button in the **Desktop** tab.
 2. Clicked the **Connect** tab and refreshed the list of available networks.
 3. Connected to `Office-WiFi` and entered the password.
 
