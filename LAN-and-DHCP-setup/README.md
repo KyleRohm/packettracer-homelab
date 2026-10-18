@@ -166,45 +166,24 @@ Confirm that the pool exists and that client leases appear after the PCs request
 
 ## Step 5: Configure the WRT300N
 
-The WRT300N has separate Internet-facing and internal LAN interfaces. The Internet interface connects to the Cisco router, while the internal LAN serves wireless clients.
+The WRT300N has separate Internet-facing and internal LAN interfaces. A cross over cable was used to connect the WRT300N Internet interface connects to the Cisco 2911 router's Gigabit Ethernet 0/1 interface.
 
 ### Configure the Internet interface
 
-1. Open the WRT300N.
-2. Select the **GUI** tab.
-3. Open **Setup** and locate the Internet connection settings.
-4. Set the Internet connection type to **Static IP**.
-5. Enter the following values:
+1. Opened the WRT300N's **GUI** tab and set the SSID as `Office WiFi`.
+2. Set the Security Mode to WPA2 Personal and created a passphrase.
+3. Opened the **Setup** tab and entered the following values:
 
 | Setting | Value |
 |---|---|
-| Internet IP address | 192.168.10.2 |
+| Internet IP address | 192.168.2.1 |
 | Subnet mask | 255.255.255.0 |
-| Default gateway | 192.168.10.1 |
 
-If a DNS field is required, a DNS server can be entered for future name-resolution testing. Internet access and external DNS are not required for the basic local connectivity tests in this lab.
-
-### Configure the internal LAN
-
-On the same setup page, locate the Network Setup or Router IP section.
-
-Enter:
-
-| Setting | Value |
-|---|---|
-| Router IP address | 192.168.2.1 |
-| Subnet mask | 255.255.255.0 |
-| DHCP server | Enabled |
-
-Set the wireless LAN DHCP starting address and maximum number of users as appropriate for your Packet Tracer version. Ensure that the DHCP range remains within `192.168.2.0/24` and does not include the network address, broadcast address, or the router's `192.168.2.1` address.
-
-Click **Save Settings**.
-
-**Why this matters:** The WRT300N serves the wireless clients on `192.168.2.0/24`, while its Internet-facing interface uses `192.168.10.2` to communicate with the Cisco router. These addresses must not overlap.
+> The Cisco 2911 will be serving as the network's default gateway.
 
 ---
 
-## Step 6: Configure the Wireless Network
+## Step 5: Configure the Wireless Network
 
 Open the WRT300N GUI and select the **Wireless** section.
 
