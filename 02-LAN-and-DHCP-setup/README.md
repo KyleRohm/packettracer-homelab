@@ -253,7 +253,7 @@ Confirmed that each PC has:
 
 Pinged the printer from a wired PC's command prompt:
 
-![Printer Ping](screenshots/Pinter_Ping.png)
+![Printer Ping](screenshots/Printer_Setup.png)
 
 ### Test 2: Laptop to Wireless Router
 
