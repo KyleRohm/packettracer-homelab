@@ -28,8 +28,8 @@ The lab focuses on IPv4 addressing, subnetting, router interface configuration, 
 
 | Device | Quantity | Purpose |
 |---|---:|---|
-| Cisco 2911 router | 1 | Routes traffic both LANs and provides DHCP for the wired LAN |
-| Cisco 2960 switch | 1 | Connects the wired office devices |
+| Cisco 2911 router | 1 | Routes traffic to both LANs and provides DHCP for the wired LAN |
+| Cisco 2960 switch | 1 | Connects the wired devices |
 | WRT300N wireless router | 1 | Provides wireless connectivity and DHCP for the wireless LAN |
 | PCs | 3 | Wired client devices |
 | Network printer | 1 | Printer with a static IPv4 address |
