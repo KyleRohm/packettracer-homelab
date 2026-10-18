@@ -105,7 +105,6 @@ exit
 Excluded the printer's static address and a small range of addresses reserved for infrastructure.
 
 ```text
-configure terminal
 ip dhcp excluded-address 192.168.1.1 192.168.1.20
 ```
 
