@@ -151,7 +151,7 @@ show ip dhcp pool
 show running-config
 ```
 
-Checked that the DHCP pool was configured and that client leases appeared after the PCs requested IP addresses.
+Checked that the DHCP pool was configured and that client leases appeared after the PCs requested IP addresses:
 
 ![Verified DHCP Config](screenshots/Verified_DHCP_Config.png)
 
@@ -168,13 +168,7 @@ The WRT300N has separate Internet-facing and internal LAN interfaces. A cross ov
 ### Configure the SSID, security, and IP address
 
 1. Opened the WRT300N's **GUI** tab and set the SSID as `Office WiFi`.
-
-![WiFi Name](screenshots/WiFi_name.png)
-
 2. Set the Security Mode to WPA2 Personal and created a password.
-
-![Security](screenshots/Security.png)
-
 3. Opened the **Setup** tab and entered the following values:
 
 | Setting | Value |
