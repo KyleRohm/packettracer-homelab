@@ -15,7 +15,7 @@ The lab focuses on IPv4 addressing, subnetting, router interface configuration, 
 - Connect end devices, switches, and routers using appropriate cables.
 - Configure Cisco router interfaces with static IPv4 addresses.
 - Configure DHCP pools on a Cisco IOS router.
-- Configure a wireless router's SSID and WPA2-Personal security.
+- Configure a wireless router's SSID and security settings.
 - Connect a laptop to a wireless network.
 - Assign a static IPv4 address to a network printer.
 - Verify addressing and connectivity using `ipconfig` and `ping`.
