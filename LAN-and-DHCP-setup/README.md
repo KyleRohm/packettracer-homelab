@@ -151,7 +151,7 @@ show ip dhcp pool
 show running-config
 ```
 
-Confirm that the pool exists and that client leases appear after the PCs request DHCP addresses.
+Check that the DHCP pool is configured and that client leases appear after the PCs request IP addresses.
 
 ![Verified DHCP Config](screenshots/Verified_DHCP_Config.png)
 
