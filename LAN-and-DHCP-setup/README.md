@@ -20,7 +20,6 @@ By completing this lab, I will demonstrate the ability to:
 - Build a small office network topology in Cisco Packet Tracer.
 - Connect end devices, switches, and routers using appropriate cables.
 - Configure Cisco router interfaces with static IPv4 addresses.
-- Enable router interfaces using `no shutdown`.
 - Configure DHCP pools on a Cisco IOS router.
 - Configure a wireless router's SSID and WPA2-Personal security.
 - Connect a laptop to a wireless network.
@@ -37,7 +36,7 @@ By completing this lab, I will demonstrate the ability to:
 
 | Device | Quantity | Purpose |
 |---|---:|---|
-| Cisco 2911 router | 1 | Routes traffic between connected networks and provides DHCP for the wired LAN |
+| Cisco 2911 router | 1 | Routes traffic both LANs and provides DHCP for the wired LAN |
 | Cisco 2960 switch | 1 | Connects the wired office devices |
 | WRT300N wireless router | 1 | Provides wireless connectivity and DHCP for the wireless LAN |
 | PCs | 3 | Wired client devices |
@@ -46,19 +45,14 @@ By completing this lab, I will demonstrate the ability to:
 
 ### Topology design
 
-The network uses three IPv4 subnets:
+The network will use two IPv4 subnets:
 
 1. **Wired LAN:** `192.168.1.0/24`
-2. **Router-to-wireless-router transit network:** `192.168.10.0/24`
 3. **Wireless LAN:** `192.168.2.0/24`
-
-The transit subnet connects the Cisco router to the WRT300N Internet port. The wireless laptop uses the WRT300N's internal wireless LAN.
-
-This arrangement avoids assigning the same address to both routers and keeps the wired and wireless client networks separate.
 
 ### Connections
 
-| Source device | Destination device | Cable | Port example |
+| Source device | Destination device | Cable | Port |
 |---|---|---|---|
 | PC1 | Switch | Copper straight-through | PC FastEthernet0 → Switch Fa0/1 |
 | PC2 | Switch | Copper straight-through | PC FastEthernet0 → Switch Fa0/2 |
@@ -66,151 +60,73 @@ This arrangement avoids assigning the same address to both routers and keeps the
 | Printer | Switch | Copper straight-through | Printer FastEthernet0 → Switch Fa0/4 |
 | Switch | Cisco 2911 router | Copper straight-through | Switch GigabitEthernet0/1 → Router GigabitEthernet0/0 |
 | Cisco 2911 router | WRT300N | Copper straight-through | Router GigabitEthernet0/1 → WRT300N Internet port |
-| Laptop | WRT300N | Wireless | No physical cable |
-
-**Cable note:** Straight-through cables are suitable for the PC-to-switch, printer-to-switch, and switch-to-router connections. A crossover cable is not generally required for the router-to-wireless-router connection in Packet Tracer when using modern interfaces with automatic crossover support. Follow the interface requirements of your selected devices.
-
----
-
-## IPv4 Addressing Plan
-
-### Wired LAN — 192.168.1.0/24
-
-| Device/interface | IPv4 address | Subnet mask | Default gateway |
-|---|---|---|---|
-| Cisco router G0/0 | 192.168.1.1 | 255.255.255.0 | N/A |
-| PC1 | DHCP | 255.255.255.0 | 192.168.1.1 |
-| PC2 | DHCP | 255.255.255.0 | 192.168.1.1 |
-| PC3 | DHCP | 255.255.255.0 | 192.168.1.1 |
-| Network printer | 192.168.1.10 | 255.255.255.0 | 192.168.1.1 |
-
-### Transit network — 192.168.10.0/24
-
-| Device/interface | IPv4 address | Subnet mask | Default gateway |
-|---|---|---|---|
-| Cisco router G0/1 | 192.168.10.1 | 255.255.255.0 | N/A |
-| WRT300N Internet interface | 192.168.10.2 | 255.255.255.0 | 192.168.10.1 |
-
-### Wireless LAN — 192.168.2.0/24
-
-| Device/interface | IPv4 address | Subnet mask | Default gateway |
-|---|---|---|---|
-| WRT300N LAN interface | 192.168.2.1 | 255.255.255.0 | N/A |
-| Wireless laptop | DHCP | 255.255.255.0 | 192.168.2.1 |
-
-The Cisco router provides DHCP to the wired PCs. The WRT300N provides DHCP to wireless clients on its own LAN.
-
-> **Important:** These addresses are the planned configuration for this lab. Verify the actual interface names and configuration screens in your Packet Tracer version before applying them.
+| Laptop | WRT300N | Wireless | N/A |
 
 ---
 
 ## Step 1: Add the Devices
 
-1. Open Cisco Packet Tracer and start with a blank workspace.
-2. Add one Cisco 2911 router.
-3. Add one Cisco 2960 switch.
-4. Add one WRT300N wireless router.
-5. Add three PCs, one printer, and one laptop.
-6. Arrange the devices so that the wired LAN and wireless LAN are easy to identify.
-7. Rename the devices if desired, using descriptive names such as `PC1`, `PC2`, `PC3`, `Printer1`, `Router1`, `Switch1`, `WirelessRouter1`, and `Laptop1`.
-
-**Why this matters:** A clear topology makes it easier to understand traffic flow and troubleshoot connectivity problems.
+1. Added a Cisco 2911 router, Cisco 2960 switch and a WRT300N wireless router.
+2. Added three PCs, one printer, and one laptop.
+3. Arranged the devices so that the wired LAN and wireless LAN are easy to identify.
 
 ---
 
 ## Step 2: Connect the Wired Devices
 
-Use copper straight-through cables to connect the three PCs and printer to the switch.
-
-Connect the switch to the Cisco router's `GigabitEthernet0/0` interface.
-
-Connect the Cisco router's `GigabitEthernet0/1` interface to the WRT300N's **Internet** port.
-
-Do not connect the laptop with an Ethernet cable; it will use the wireless interface.
-
-Wait for the links to initialize. Router interfaces may remain down until they are enabled.
+1. Used copper straight-through cables to connect the three PCs and printer to the switch.
+2. Connected the switch to the Cisco 2911 router.
+3. Connected the Cisco 2911 router's `GigabitEthernet0/1` interface to the WRT300N's **Internet** port.
 
 ---
 
 ## Step 3: Configure the Cisco Router Interfaces
 
-Open the Cisco 2911 router, select the CLI tab, and decline the initial configuration dialog if prompted.
-
-Enter privileged EXEC mode and global configuration mode:
+Accessed the Cisco 2911 router's CLI and configured the wired LAN interface
 
 ```text
 enable
 configure terminal
-```
-
-### Configure the wired LAN interface
-
-```text
 interface gigabitEthernet 0/0
 ip address 192.168.1.1 255.255.255.0
 no shutdown
 exit
 ```
 
+![Wired LAN Interface Setup](screenshots/wired_lan_setup.png)
+
 **Explanation:**
 
 - `interface gigabitEthernet 0/0` selects the interface connected to the switch.
 - `ip address` assigns the router's address on the wired LAN.
-- `no shutdown` administratively enables the interface.
+- `no shutdown` enables the router.
 - `exit` returns to global configuration mode.
 
-The router's `192.168.1.1` address will serve as the wired clients' default gateway.
-
-### Configure the transit interface
-
-```text
-interface gigabitEthernet 0/1
-ip address 192.168.10.1 255.255.255.0
-no shutdown
-exit
-```
-
-This interface connects the Cisco router to the WRT300N Internet port. It uses a separate subnet to prevent an addressing conflict with the wireless LAN.
-
-### Verify the interfaces
-
-```text
-end
-show ip interface brief
-```
-
-**Expected result:** Both `GigabitEthernet0/0` and `GigabitEthernet0/1` should show `up` under Status and Protocol once the connected links are operational.
-
-If an interface is administratively down, return to interface configuration mode and apply `no shutdown`.
+> The router's `192.168.1.1` address will serve as the wired clients' default gateway.
 
 ---
 
 ## Step 4: Configure DHCP for the Wired LAN
 
-DHCP (Dynamic Host Configuration Protocol) automatically assigns IP configuration to clients, including an IPv4 address, subnet mask, and default gateway.
-
-Before configuring the DHCP pool, exclude the printer's static address and a small range of addresses reserved for infrastructure.
-
-Enter global configuration mode:
+Excluded the printer's static address and a small range of addresses reserved for infrastructure.
 
 ```text
 configure terminal
-```
-
-Exclude the reserved addresses:
-
-```text
 ip dhcp excluded-address 192.168.1.1 192.168.1.20
 ```
 
-Create the wired DHCP pool:
+Created the wired DHCP pool and saved the configuration:
 
 ```text
 ip dhcp pool WIRED-LAN
 network 192.168.1.0 255.255.255.0
 default-router 192.168.1.1
 exit
+end
+copy running-config startup-config
 ```
+
+> When prompted for the destination filename, pressed Enter to accept the default.
 
 **Explanation:**
 
@@ -219,32 +135,22 @@ exit
 - `network` specifies the subnet served by the pool.
 - `default-router` supplies the default gateway to DHCP clients.
 
-The excluded range leaves `192.168.1.21` through `192.168.1.254` available for DHCP leases, subject to any other exclusions or existing bindings.
+> The excluded range leaves `192.168.1.21` through `192.168.1.254` available for DHCP leases.
 
-Save the configuration:
-
-```text
-end
-copy running-config startup-config
-```
-
-When prompted for the destination filename, press Enter to accept the default.
+![Wired LAN and DCHP Configuration](screenshots/LAN_DHCP_Config.png)
 
 ### Configure the wired PCs for DHCP
 
 For each PC:
 
-1. Open the PC.
-2. Select **Desktop**.
-3. Open **IP Configuration**.
-4. Select **DHCP**.
-5. Confirm that an IPv4 address, subnet mask, and default gateway are displayed.
+* Opened the PC, selected **Desktop**, opened **IP Configuration**, and selected **DHCP**.
+* Confirmed that an IPv4 address, subnet mask, and default gateway were displayed.
 
-The PCs should receive addresses in `192.168.1.0/24`, excluding the reserved addresses.
+> The PCs should receive addresses in `192.168.1.0/24`, excluding the reserved addresses.
 
 ### Verify the DHCP configuration
 
-On the Cisco router, run:
+On the Cisco router, ran:
 
 ```text
 show ip dhcp binding
@@ -253,6 +159,8 @@ show running-config
 ```
 
 Confirm that the pool exists and that client leases appear after the PCs request DHCP addresses.
+
+![Verified DHCP Config](screenshots/Verified_DHCP_Config.png)
 
 ---
 
