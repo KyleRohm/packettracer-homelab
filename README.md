@@ -52,15 +52,15 @@ Each lab will include a topology diagram or screenshot where appropriate, along 
 
 ## Learning Roadmap
 
-| Phase | Lab                                    | Status  |
-| ----- | -------------------------------------- | ------- |
-| 01    | Packet Tracer Fundamentals             | Planned |
-| 02    | Basic Network Connectivity             | Planned |
-| 03    | Switching and VLAN Configuration       | Planned |
-| 04    | Routing and Inter-VLAN Routing         | Planned |
-| 05    | Network Services                       | Planned |
-| 06    | Network Troubleshooting                | Planned |
-| 07    | Network Security and Device Management | Planned |
+| Phase | Lab                                                        | Status    |
+| ----- | ---------------------------------------------------------- | --------- |
+| 01    | Basic Switch Configuration and VLAN Assignment             | Completed |
+| 02    | DHCP, Wireless Connectivity, and Network Printer           | Completed |
+| 03    | Switching and VLAN Configuration                           | Planned   |
+| 04    | Routing and Inter-VLAN Routing                             | Planned   |
+| 05    | Network Services                                           | Planned   |
+| 06    | Network Troubleshooting                                    | Planned   |
+| 07    | Network Security and Device Management                     | Planned   |
 
 The roadmap will be updated as labs are completed and additional topics are introduced.
 
