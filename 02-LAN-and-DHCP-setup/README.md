@@ -209,7 +209,7 @@ Assigned a reserved address so that client computers can consistently locate the
 
 1. Opened the printer settings and selected **Config**.
 2. Selected its wired Ethernet interface: **FastEthernet0**.
-3. Configured the following:
+3. Ensured IP Configuration is static and set the following:
 
 | Setting | Value |
 |---|---|
