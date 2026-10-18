@@ -51,7 +51,7 @@ The network will use two IPv4 subnets:
 | PC3 | Cisco 2960 Switch | Copper straight-through | PC FastEthernet0 → Switch Fa0/3 |
 | Printer | Cisco 2960 Switch | Copper straight-through | Printer FastEthernet0 → Switch Fa0/4 |
 | Switch | Cisco 2911 router | Copper straight-through | Switch GigabitEthernet0/1 → Router GigabitEthernet0/0 |
-| Cisco 2911 router | WRT300N wireless router | Copper straight-through | Router GigabitEthernet0/1 → WRT300N Internet port |
+| Cisco 2911 router | WRT300N wireless router | Copper cross-over | Router GigabitEthernet0/1 → WRT300N Internet port |
 | Laptop | WRT300N wireless router | Wireless | N/A |
 
 ---
