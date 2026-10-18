@@ -139,7 +139,7 @@ For each PC:
 * Opened the PC, selected **Desktop**, opened **IP Configuration**, and selected **DHCP**.
 * Confirmed that an IPv4 address, subnet mask, and default gateway were displayed.
 
-> The PCs should receive addresses in `192.168.1.0/24`, excluding the reserved addresses.
+> The PCs should receive addresses in `192.168.1.0/24`, but excluded from the reserved addresses (192.168.1.1 - 192.168.1.20).
 
 ### Verify the DHCP configuration
 
