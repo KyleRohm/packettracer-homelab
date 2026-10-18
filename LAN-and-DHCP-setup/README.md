@@ -235,98 +235,35 @@ Assigned a reserved address so that client computers can consistently locate the
 
 ## Step 8: Verify IPv4 Addressing
 
-On each wired PC, open **Desktop → Command Prompt** and run:
+On each wired PC, opened **Desktop → Command Prompt** and ran:
 
 ```text
 ipconfig
 ```
 
-Confirm that each PC has:
+Confirmed that each PC has:
 
 - An address in `192.168.1.0/24`.
 - Subnet mask `255.255.255.0`.
 - Default gateway `192.168.1.1`.
 
-On the laptop, run `ipconfig` and confirm that it has an address in `192.168.2.0/24` with gateway `192.168.2.1`.
-
-On the Cisco router, verify:
-
-```text
-show ip interface brief
-show ip dhcp binding
-show ip route
-```
-
-The routing table should include connected routes for `192.168.1.0/24` and `192.168.10.0/24` when the interfaces are up.
-
-The Cisco router does not automatically learn the WRT300N's internal wireless subnet through a dynamic routing protocol in this lab. The WRT300N uses NAT by default in its typical gateway configuration.
-
 ---
 
-## Step 11: Test Connectivity
+## Step 9: Test Connectivity
 
-### Test 1: Wired PC to default gateway
+### Test 1: Wired PC to Printer
 
-From a wired PC's command prompt:
+Pinged the printer from a wired PC's command prompt:
 
-```text
-ping 192.168.1.1
-```
+![Printer Ping](screenshots/Pinter_Ping.png)
 
-**Expected result:** Replies from the Cisco router's wired interface.
+### Test 2: Laptop to Wireless Router
 
-### Test 2: Wired PC to printer
+![Wireless Router Ping](screenshots/Wireless_Router_Ping.png)
 
-From a wired PC:
+### Test 3: Wireless-to-wired connectivity
 
-```text
-ping 192.168.1.10
-```
-
-**Expected result:** Replies from the printer, provided its interface is correctly configured and online.
-
-### Test 3: Laptop to wireless default gateway
-
-From the laptop:
-
-```text
-ping 192.168.2.1
-```
-
-**Expected result:** Replies from the WRT300N's internal LAN interface.
-
-### Test 4: Wireless-to-wired connectivity
-
-From the laptop, test:
-
-```text
-ping 192.168.10.1
-ping 192.168.1.10
-```
-
-These tests can help identify whether the wireless router's WAN connection and upstream network are reachable. Results depend on the WRT300N's NAT behavior, Packet Tracer implementation, and routing configuration. Do not assume that successful Wi-Fi association alone proves end-to-end access to the wired LAN.
-
-If the goal is to permit or prevent wireless clients from accessing the wired LAN, implement and test an explicit network security policy rather than treating subnet separation or NAT as a complete security control.
-
----
-
-## Step 12: Save the Configuration
-
-On the Cisco router, save the running configuration:
-
-```text
-copy running-config startup-config
-```
-
-Press Enter to accept the default destination filename.
-
-Save the Packet Tracer project using **File → Save As**. Use a descriptive filename such as:
-
-```text
-02-small-office-network-dhcp-and-wireless.pkt
-```
-
-Save screenshots of the completed topology, router interfaces, DHCP leases, wireless settings, and successful ping tests in a screenshots folder for this lab.
+![Wired PC To Wireless Laptop](screenshots/Wired_PC_To_Wireless_Laptop.png)
 
 ---
 
@@ -345,75 +282,3 @@ Save screenshots of the completed topology, router interfaces, DHCP leases, wire
 | Wireless client cannot reach a wired device | Check the WRT300N WAN configuration, NAT behavior, upstream connectivity, and routing design |
 
 ---
-
-## Key Concepts Learned
-
-### DHCP
-
-DHCP automatically supplies IPv4 addressing information to clients. It reduces manual configuration and makes it easier to manage a network with multiple devices.
-
-### Default gateway
-
-A default gateway provides a path to destinations outside a device's local subnet. A client generally needs the correct gateway to communicate with other routed networks.
-
-### Static IP addressing
-
-A static address can make infrastructure devices such as printers easier to locate. Static assignments must be coordinated with DHCP so that two devices do not receive the same address.
-
-### Wireless security
-
-An SSID identifies a wireless network, while wireless security settings control how clients authenticate and protect their connection.
-
-### Network segmentation
-
-Using separate IPv4 subnets helps organize a network and creates boundaries for routing and policy enforcement. Different subnets alone do not guarantee security; access controls must be configured and tested.
-
-### Verification and troubleshooting
-
-Commands such as `ipconfig`, `ping`, `show ip interface brief`, `show ip dhcp binding`, and `show ip route` help identify whether addressing, interfaces, DHCP, and connectivity are working as expected.
-
----
-
-## Lab Completion Checklist
-
-- [ ] Added the router, switch, wireless router, three PCs, printer, and laptop.
-- [ ] Connected the wired devices and router interfaces.
-- [ ] Configured the Cisco router's wired and transit interfaces.
-- [ ] Enabled the router interfaces and verified their status.
-- [ ] Configured DHCP for the wired LAN.
-- [ ] Confirmed that all three wired PCs received valid DHCP addresses.
-- [ ] Configured the WRT300N Internet and LAN interfaces with separate subnets.
-- [ ] Configured the SSID and wireless security.
-- [ ] Connected the laptop to Wi-Fi.
-- [ ] Confirmed that the laptop received a valid wireless DHCP address.
-- [ ] Assigned the printer a static IPv4 address.
-- [ ] Tested wired gateway and printer connectivity.
-- [ ] Tested wireless gateway and upstream connectivity.
-- [ ] Saved the router configuration and Packet Tracer project.
-- [ ] Captured screenshots documenting the completed configuration and test results.
-
----
-
-## Evidence and Screenshots
-
-Add screenshots here after performing and verifying the configurations in Packet Tracer.
-
-Suggested screenshots:
-
-1. `01-topology.png` — Full network topology.
-2. `02-router-interfaces.png` — Router interface configuration and status.
-3. `03-dhcp-bindings.png` — DHCP bindings for the wired clients.
-4. `04-wireless-security.png` — SSID and wireless security settings, with the passphrase hidden.
-5. `05-laptop-ipconfig.png` — Laptop wireless addressing.
-6. `06-printer-ipconfig.png` — Printer static IP configuration.
-7. `07-connectivity-tests.png` — Successful ping tests.
-
----
-
-## Conclusion
-
-This lab demonstrates how a small office network can use a switch for wired connectivity, a router for Layer 3 communication, DHCP for automatic client addressing, and a wireless router for Wi-Fi connectivity.
-
-The lab also reinforces the importance of a consistent IP addressing plan, static addressing for selected infrastructure devices, configuration backups, and systematic verification.
-
-The next step is to build on this foundation with additional switching, VLAN configuration, access controls, and more advanced routing and security concepts.
