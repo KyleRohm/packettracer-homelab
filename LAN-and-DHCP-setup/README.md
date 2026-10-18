@@ -1,8 +1,6 @@
 
 # Lab 02: Small Office Network — DHCP, Wireless Connectivity, and Network Printer
 
----
-
 ## Overview
 
 This lab builds on the basic switching and VLAN concepts introduced in Lab 01 by simulating a small office network in Cisco Packet Tracer.
