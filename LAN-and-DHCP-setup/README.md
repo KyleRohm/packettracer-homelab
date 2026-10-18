@@ -5,8 +5,6 @@
 
 This lab builds on the basic switching and VLAN concepts introduced in Lab 01 by simulating a small office network in Packet Tracer.
 
-The network includes three wired PCs, a network printer, a Cisco router, a wireless router, and a laptop connected over Wi-Fi.
-
 The lab focuses on IPv4 addressing, subnetting, router interface configuration, DHCP, wireless security, and end-to-end connectivity testing.
 
 ---
