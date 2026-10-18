@@ -200,7 +200,7 @@ The WRT300N has separate Internet-facing and internal LAN interfaces. A cross ov
 3. Remove the existing module and replaced with a `WPC300N` module.
 5. Powered the laptop back on.
 
-### Connected the Laptop to Wi-Fi
+### Connected to Wi-Fi
 
 1. Selected the **Desktop** tab.
 2. Clicked the **Connect** tab and refreshed the list of available networks.
@@ -216,29 +216,24 @@ The WRT300N has separate Internet-facing and internal LAN interfaces. A cross ov
 
 ## Step 7: Configure a Static IP Address for the Printer
 
-Network printers are often assigned a reserved address so that client computers can consistently locate them.
+Assigned a reserved address so that client computers can consistently locate the device.
 
-Open the printer in Packet Tracer.
-
-1. Select **Config**.
-2. Select its wired Ethernet interface, typically **FastEthernet0**.
-3. Configure the static IPv4 address:
+1. Opened the printer settings and selected **Config**.
+2. Selected its wired Ethernet interface: **FastEthernet0**.
+3. Configured the following:
 
 | Setting | Value |
 |---|---|
 | IPv4 address | 192.168.1.10 |
 | Subnet mask | 255.255.255.0 |
-| Default gateway | 192.168.1.1 |
 
-If the interface screen provides a default-gateway field, enter `192.168.1.1`.
+> The printer's fixed IP is still on the wired LAN's subnet but is kept out of the router’s DHCP pool so the same address won't be given to another device.
 
-The printer address is within the wired LAN but outside the excluded DHCP reservation range and the available DHCP lease range configured above.
-
-**Why this matters:** A stable address makes it easier for users and client devices to locate a shared network printer. In a production network, DHCP reservations or centralized IP address management can also be used to prevent address conflicts.
+![Printer Setup](screenshots/Printer_Setup.png)
 
 ---
 
-## Step 10: Verify IPv4 Addressing
+## Step 8: Verify IPv4 Addressing
 
 On each wired PC, open **Desktop → Command Prompt** and run:
 
