@@ -151,9 +151,13 @@ show ip dhcp pool
 show running-config
 ```
 
-Check that the DHCP pool is configured and that client leases appear after the PCs request IP addresses.
+Checked that the DHCP pool was configured and that client leases appeared after the PCs requested IP addresses.
 
 ![Verified DHCP Config](screenshots/Verified_DHCP_Config.png)
+
+Checked that the excluded addresses were configured:
+
+![Excluded Addresses](screenshots/Excluded_Addresses.png)
 
 ---
 
