@@ -98,6 +98,15 @@ exit
 
 > The router's `192.168.1.1` address will serve as the wired clients' default gateway.
 
+Enabled the GigabitEthernet 0/1 interface for the wireless side:
+
+```text
+interface gigabitEthernet 0/1
+no shutdown
+```
+
+![Wireless Enable](screenshots/Enable_Wireless.png)
+
 ---
 
 ## Step 4: Configure DHCP for the Wired LAN
@@ -252,26 +261,10 @@ Pinged the WRT300N router from the laptop's command prompt:
 
 ![Wireless Router Ping](screenshots/Wireless_Router_Ping.png)
 
-### Test 3: Wireless-to-wired connectivity
-
-Pinged a wired PC from the laptop's command prompt:
-
-![Wired PC To Wireless Laptop](screenshots/Wired_PC_To_Wireless_Laptop.png)
-
 ---
 
-## Troubleshooting
+## Finished Design
 
-| Symptom | What to check |
-|---|---|
-| Router interface is down | Confirm the cable, connected port, and `no shutdown` command |
-| PC receives no DHCP address | Check the PC's DHCP setting, router interface status, DHCP pool network, and excluded addresses |
-| PC has an incorrect default gateway | Verify the `default-router` statement in the relevant DHCP pool |
-| Printer cannot be pinged | Check the printer's static IP, subnet mask, cabling, switch port, and possible address conflicts |
-| Laptop cannot see the SSID | Check the SSID, wireless module, wireless settings, and laptop power state |
-| Laptop cannot associate with Wi-Fi | Verify the security mode and passphrase on both devices |
-| Wireless laptop has no IPv4 address | Confirm the WRT300N LAN IP and DHCP server settings |
-| Two devices have the same address | Check the addressing plan, static assignments, and DHCP exclusions |
-| Wireless client cannot reach a wired device | Check the WRT300N WAN configuration, NAT behavior, upstream connectivity, and routing design |
+![Finished Design](screenshots/Finished_Design.png)
 
 ---
