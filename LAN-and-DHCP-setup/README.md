@@ -164,14 +164,20 @@ Confirm that the pool exists and that client leases appear after the PCs request
 
 ---
 
-## Step 5: Configure the WRT300N
+## Step 5: Configure the Wireless Network
 
 The WRT300N has separate Internet-facing and internal LAN interfaces. A cross over cable was used to connect the WRT300N Internet interface connects to the Cisco 2911 router's Gigabit Ethernet 0/1 interface.
 
-### Configure the Internet interface
+### Configure the SSID, security, and IP address
 
 1. Opened the WRT300N's **GUI** tab and set the SSID as `Office WiFi`.
-2. Set the Security Mode to WPA2 Personal and created a passphrase.
+
+![WiFi Name](screenshots/WiFi_name.png)
+
+2. Set the Security Mode to WPA2 Personal and created a password.
+
+![Security](screenshots/Security.png)
+
 3. Opened the **Setup** tab and entered the following values:
 
 | Setting | Value |
@@ -181,81 +187,34 @@ The WRT300N has separate Internet-facing and internal LAN interfaces. A cross ov
 
 > The Cisco 2911 will be serving as the network's default gateway.
 
----
-
-## Step 5: Configure the Wireless Network
-
-Open the WRT300N GUI and select the **Wireless** section.
-
-### Configure the SSID
-
-Set the wireless network name (SSID) to:
-
-```text
-Office-WiFi
-```
-
-Save the settings.
-
-The SSID is the name wireless clients see when searching for available networks.
-
-### Configure wireless security
-
-Open the Wireless Security section.
-
-Set:
-
-- **Security mode:** WPA2 Personal, if available.
-- **Encryption:** AES, if available.
-- **Passphrase:** Use a unique lab-only passphrase.
-
-For example, a lab-only passphrase could be `OfficeLab-2026!`.
-
-Do not reuse this example as a password for real accounts or networks.
-
-Save the settings.
-
-**Security note:** WPA2-AES or WPA3, when supported, is preferable to open wireless access or obsolete WEP security. For a business environment, centralized authentication and additional wireless security controls may be appropriate.
+![IP Address](screenshots/IP_address.png)
 
 ---
 
-## Step 7: Install the Laptop's Wireless Module
+## Step 6: Connect the Laptop to Wi-Fi
 
-In Packet Tracer, the laptop may need a compatible wireless module installed before it can connect to Wi-Fi.
+### Installed Wireless module
 
-1. Open the laptop and select **Physical**.
-2. Power the laptop off.
-3. Remove the existing module if necessary.
-4. Install the compatible wireless module, such as `WPC300N` when available.
-5. Power the laptop back on.
+1. Opened the laptop and selected **Physical**.
+2. Powered the laptop off.
+3. Remove the existing module and replaced with a `WPC300N` module.
+5. Powered the laptop back on.
 
-Module names and available hardware may differ by Packet Tracer version.
+### Connected the Laptop to Wi-Fi
 
----
+1. Selected the **Desktop** tab.
+2. Clicked the **Connect** tab and refreshed the list of available networks.
+3. Connected to `Office-WiFi` and entered the password.
 
-## Step 8: Connect the Laptop to Wi-Fi
+![Wireless Signal](screenshots/Wireless_Signal.png)
 
-1. Open the laptop.
-2. Select **Desktop**.
-3. Open **PC Wireless**.
-4. Refresh the available network list if necessary.
-5. Select `Office-WiFi`.
-6. Connect and enter the configured wireless passphrase.
-7. Check the wireless connection or link information to confirm association.
+### Verified Laptop is Using DHCP
 
-Next, configure the laptop to receive its address through DHCP:
-
-1. Open **Desktop**.
-2. Select **IP Configuration**.
-3. Select **DHCP**.
-
-**Expected result:** The laptop receives an address in `192.168.2.0/24` and uses `192.168.2.1` as its default gateway.
-
-If the laptop does not receive an address, verify the wireless association, SSID, passphrase, wireless module, and WRT300N DHCP settings.
+![Laptop DHCP](screenshots/Laptop_DHCP.png)
 
 ---
 
-## Step 9: Configure a Static IP Address for the Printer
+## Step 7: Configure a Static IP Address for the Printer
 
 Network printers are often assigned a reserved address so that client computers can consistently locate them.
 
