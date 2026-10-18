@@ -11,9 +11,7 @@ The lab focuses on IPv4 addressing, subnetting, router interface configuration, 
 
 ## Objectives
 
-By completing this lab, I will demonstrate the ability to:
-
-- Build a small office network topology in Cisco Packet Tracer.
+- Build a small office network topology in Packet Tracer.
 - Connect end devices, switches, and routers using appropriate cables.
 - Configure Cisco router interfaces with static IPv4 addresses.
 - Configure DHCP pools on a Cisco IOS router.
