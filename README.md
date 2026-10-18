@@ -1,12 +1,12 @@
 # Cisco Packet Tracer Networking Home Lab
 
-A hands-on Cisco Packet Tracer networking lab covering network configuration, switching, routing, troubleshooting, and connectivity verification, with step-by-step documentation and practical evidence.
+This repository features a collection of networking labs covering network configuration, switching, routing, troubleshooting, and connectivity verification, with step-by-step documentation and practical evidence.
 
 ## Overview
 
-This repository documents my hands-on networking labs using Cisco Packet Tracer. The project focuses on developing practical networking skills through network design, device configuration, connectivity testing, troubleshooting, and technical documentation.
+This project focuses on developing practical networking skills through network design, device configuration, connectivity testing, troubleshooting, and technical documentation.
 
-Each lab documents the configuration process, explains the networking concepts involved, and identifies the commands and tests used to verify the intended behavior. Screenshots and configuration evidence will be added as the labs are completed.
+Configuration commands will be included to document the process and screenshots will serve as verification the steps are completed.
 
 The goal is to build a practical networking portfolio that demonstrates skills relevant to entry-level IT support, network support, infrastructure administration, and future cybersecurity roles.
 
