@@ -2,25 +2,20 @@
 
 ## Overview
 
-This lab covers the initial configuration of a Cisco Catalyst 2960 switch using Cisco Packet Tracer.
-
-The lab simulates the process of setting up a new switch or preparing a replacement switch for deployment. Initial configuration is performed through a console connection, after which the switch is configured for remote management using Secure Shell (SSH).
+The lab simulates the process of setting up a new switch for deployment. Initial configuration is performed through a console connection, after which the switch is configured for remote management using Secure Shell (SSH).
 
 The lab covers basic Cisco IOS commands, hostname configuration, password protection, management IP addressing, console access, SSH authentication, and configuration verification.
 
 ## Objectives
 
-- Establish a console connection to a Cisco switch.
-- Inspect the initial switch configuration using Cisco IOS show commands.
 - Configure a hostname and basic security settings.
 - Configure console access with password authentication.
 - Assign a management IP address to the switch.
 - Configure a default gateway for remote management from other subnets.
 - Create a local administrator account.
-- Generate RSA keys and enable SSH version 2.
+- Generate RSA keys and enable SSH.
 - Restrict remote management access to SSH.
 - Verify connectivity and test remote SSH access.
-- Save the running configuration to startup configuration.
 
 ## Prerequisites
 
@@ -50,26 +45,18 @@ The PC initially connects to the switch through a console cable. After configura
 | Switch01 | VLAN 1 (management SVI) | `192.168.1.5` | `255.255.255.0` | `192.168.1.1` |
 | PC | FastEthernet0 | `192.168.1.3` | `255.255.255.0` | Not required for local testing |
 
-**Important:** The switch's default gateway, `192.168.1.1`, is an example address. A router or Layer 3 device must actually use that address on the management subnet for remote-subnet management to work.
-
-The switch and PC use addresses in the same subnet, `192.168.1.0/24`, allowing them to communicate directly without a router.
-
-> **Lab isolation:** This lab uses the same address range as Lab 02. If you combine the labs in one Packet Tracer topology, ensure that the IP addresses do not conflict with existing devices. Otherwise, keep this lab in its own Packet Tracer file.
-
 ---
 
-## Step 1: Add the Devices
+## Step 1: Add the Devices and Establish a Console Connection
 
-1. Open Cisco Packet Tracer.
-2. Add one Cisco Catalyst 2960 switch.
-3. Add one PC.
-4. Arrange the devices in the workspace.
+1. Added a Cisco Catalyst 2960 switch and a PC.
+2. Arrange the devices in the workspace.
 
 The switch will initially be configured through a console connection before Ethernet connectivity is tested.
 
 ---
 
-## Step 2: Establish a Console Connection
+## Step 2: 
 
 ### Connect the PC to the switch
 
