@@ -50,37 +50,20 @@ The PC initially connects to the switch through a console cable. After configura
 ## Step 1: Add the Devices and Establish a Console Connection
 
 1. Added a Cisco Catalyst 2960 switch and a PC.
-2. Arrange the devices in the workspace.
-
-The switch will initially be configured through a console connection before Ethernet connectivity is tested.
-
----
-
-## Step 2: 
-
-### Connect the PC to the switch
-
-1. Open the **Connections** menu.
-2. Select the light-blue console cable.
-3. Connect the PC's `RS-232` port to the switch's `Console` port.
+2. Arranged the devices in the workspace.
+5. Connected the PC's `RS-232` port to the switch's `Console` port.
 
 ### Open the switch terminal
 
-1. Click the PC.
-2. Open the **Desktop** tab.
-3. Select **Terminal**.
-4. Leave the default serial settings unchanged and click **OK**.
-5. Press Enter to access the switch CLI.
-
-The console connection provides out-of-band management, meaning the switch can be configured without an existing working IP connection.
-
-This is particularly useful when configuring a new switch before its management interface has been assigned an IP address.
+1. Clicked the PC.
+2. Opened the **Desktop** tab and selected **Terminal**.
+3. Left the default serial settings unchanged and clicked **OK** to access the CLI.
 
 ---
 
 ## Step 3: Inspect the Initial Switch Configuration
 
-Enter privileged EXEC mode:
+Entered privileged EXEC mode:
 
 ```text
 enable
@@ -88,41 +71,45 @@ enable
 
 Privileged EXEC mode provides access to administrative commands and configuration inspection.
 
-### View the running configuration
+### Viewed the running configuration
 
 ```text
 show running-config
 ```
 
+![Show Running-Config](screenshots/show-running-config.png)
+
 Displays the configuration currently active in memory.
 
-### View the startup configuration
+### Viewed the startup configuration
 
 ```text
 show startup-config
 ```
 
+![Show Sartup-Config](screenshots/show-startup-config.png)
+
 Displays the configuration saved in NVRAM for use when the switch starts.
 
-A new switch may report that the startup configuration is not present. This is normal before an initial configuration has been saved.
-
-### Check the IOS version
+### Checked the IOS version
 
 ```text
 show version
 ```
 
-Displays information about the switch, including its IOS version, hardware platform, and uptime.
+![Show Version](screenshots/show-version.png)
 
-### View VLAN information
+Displays information about IOS version, hardware platform, and uptime.
+
+### Viewed VLAN information
 
 ```text
 show vlan brief
 ```
 
-Displays the VLANs configured on the switch and their associated access ports.
+![Show Vlan Breif](screenshots/show-vlan-brief.png)
 
-A switch with its default configuration will typically contain VLAN 1 and the default VLAN entries.
+Displays the VLANs configured on the switch and their associated access ports.
 
 These commands establish a baseline for comparing the switch's configuration before and after the lab.
 
@@ -130,7 +117,7 @@ These commands establish a baseline for comparing the switch's configuration bef
 
 ## Step 4: Configure Basic Switch Settings
 
-Enter global configuration mode:
+Entered global configuration mode:
 
 ```text
 configure terminal
@@ -138,7 +125,7 @@ configure terminal
 
 Global configuration mode allows changes to the switch's settings.
 
-### Configure the hostname
+### Configured the hostname
 
 ```text
 hostname Switch01
@@ -146,19 +133,19 @@ hostname Switch01
 
 Changes the switch's hostname from the default `Switch` to `Switch01`.
 
+![New Switch Name](screenshots/new-switch-name.png)
+
 A meaningful hostname makes it easier to identify devices when managing multiple switches and routers.
 
-### Enable password encryption for supported configuration passwords
+### Enabled password encryption for supported configuration passwords
 
 ```text
 service password-encryption
 ```
 
-This command obscures supported plaintext passwords in the configuration display.
+This command obscures supported plaintext passwords.
 
-**Security note:** This command does not provide strong password protection. The Type 7 encryption used for many line passwords is reversible and should not be treated as secure cryptographic storage. Use secret-based authentication where supported.
-
-### Configure the privileged EXEC password
+### Configured the privileged EXEC password
 
 ```text
 enable secret LabEnable-ChangeMe
@@ -166,9 +153,7 @@ enable secret LabEnable-ChangeMe
 
 Sets the password required to enter privileged EXEC mode.
 
-The `enable secret` command stores the secret in a protected form, unlike the legacy `enable password` command.
-
-### Disable unwanted DNS lookups
+### Disabled unwanted DNS lookups
 
 ```text
 no ip domain-lookup
@@ -176,27 +161,21 @@ no ip domain-lookup
 
 Prevents the switch from attempting to resolve mistyped commands as domain names.
 
-Without this setting, an incorrectly entered command may cause the CLI to pause while the switch attempts a DNS lookup.
-
-### Configure a Message of the Day banner
+### Configured a Message of the Day banner
 
 ```text
 banner motd #Unauthorized access is strictly prohibited.#
 ```
 
+![Message Banner](screenshots/message-banner.png)
+
 Displays a warning message when someone connects to the switch.
-
-The `#` characters mark the beginning and end of the banner message. Another delimiter can be used as long as it does not appear within the message itself.
-
-Banners are commonly used to communicate authorized-use policies and security warnings.
-
-> Use unique lab-only passwords. Do not reuse these example values on production devices or real accounts.
 
 ---
 
 ## Step 5: Configure Console Access
 
-Configure password authentication for the console line:
+Configured password authentication for the console line:
 
 ```text
 line console 0
