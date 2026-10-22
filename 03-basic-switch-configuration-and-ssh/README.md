@@ -131,11 +131,9 @@ Global configuration mode allows changes to the switch's settings.
 hostname Switch01
 ```
 
-Changes the switch's hostname from the default `Switch` to `Switch01`.
-
 ![New Switch Name](screenshots/new-switch-name.png)
 
-A meaningful hostname makes it easier to identify devices when managing multiple switches and routers.
+Changes the switch's hostname from the default `Switch` to `Switch01`.
 
 ### Enabled password encryption for supported configuration passwords
 
@@ -148,10 +146,10 @@ This command obscures supported plaintext passwords.
 ### Configured the privileged EXEC password
 
 ```text
-enable secret LabEnable-ChangeMe
+enable secret homelab
 ```
 
-Sets the password required to enter privileged EXEC mode.
+Sets `homelab` as the password to enter privileged EXEC mode.
 
 ### Disabled unwanted DNS lookups
 
@@ -179,7 +177,7 @@ Configured password authentication for the console line:
 
 ```text
 line console 0
-password LabConsole-ChangeMe
+password homelab
 login
 logging synchronous
 exit
@@ -190,12 +188,9 @@ exit
 | Command | Purpose |
 |---|---|
 | `line console 0` | Enters console-line configuration mode. |
-| `password LabConsole-ChangeMe` | Sets the console line password. |
+| `password homelab` | Sets the console line password to `homelab`. |
 | `login` | Requires the configured line password when accessing the console. |
-| `logging synchronous` | Keeps asynchronous console messages from disrupting command entry. |
-| `exit` | Returns to global configuration mode. |
-
-The `login` command is important because setting a line password alone does not necessarily enable password authentication.
+| `logging synchronous` | Keeps console messages from disrupting command entry. |
 
 ### Verify console authentication
 
